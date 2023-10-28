@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int startDownload(const char *version);
+int start_download(const char *version);
+
+typedef struct {
+	char *version;
+	char *name;
+} VersionInfo;
 
 int main(int argc, char *argv[]) {
-
+  
 
   if (argc != 2) {
     fprintf(stderr, "Usage: %s <version>\n", argv[0]);
@@ -13,7 +18,7 @@ int main(int argc, char *argv[]) {
   
   char *version = argv[1];
 
-  int ret = startDownload(version);
+  int ret = start_download(version);
 
   if (ret == 1) {
     perror("system");
@@ -23,7 +28,7 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-int startDownload(const char *version) {	
+int start_download(const char *version) {	
   char command[256];
   snprintf(command, sizeof(command), "softwareupdate --fetch-full-installer --full-installer-version %s", version);
   printf("%s\n", command);
