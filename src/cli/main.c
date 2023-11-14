@@ -8,6 +8,17 @@ typedef struct {
 	char *name;
 } VersionInfo;
 
+VersionInfo versionTable[] = {
+	{"14.1", "Sonoma"},
+	{"13.6.1", "Ventura"},
+	{"12.7.1", "Monterey"},
+	{"11.7.10", "Big Sur"},
+	{"10.15.7", "Catalina"},
+	{"10.14.6", "Mojave"},
+	{"10.13.6", "High Sierra"},
+	{NULL, NULL}
+};
+
 int main(int argc, char *argv[]) {
   
 
